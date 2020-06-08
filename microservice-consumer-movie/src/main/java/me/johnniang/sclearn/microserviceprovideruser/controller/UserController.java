@@ -10,15 +10,14 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/api/v1/movies")
 public class UserController {
+    private final UserFeignClient userFeignClient;
 
-    private final RestTemplate restTemplate;
-
-    public UserController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    public UserController(UserFeignClient userFeignClient) {
+        this.userFeignClient = userFeignClient;
     }
 
     @GetMapping("users/{userId:\\d+}")
     public User findById(@PathVariable("userId") Long userId) {
-        return restTemplate.getForObject("http://microservice-provider-user/api/v1/users/{id}", User.class, userId);
+        return userFeignClient.findById(userId);
     }
 }
