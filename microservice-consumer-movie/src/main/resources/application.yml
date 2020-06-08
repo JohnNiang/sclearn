@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: microservice-consumer-movie
+  main:
+    allow-bean-definition-overriding: true
 logging:
   level:
     root: INFO
@@ -10,3 +12,9 @@ logging:
     org.hibernate: INFO
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      prefer-ip-address: true
