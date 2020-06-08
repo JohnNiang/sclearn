@@ -19,6 +19,6 @@ public class UserController {
 
     @GetMapping("users/{userId:\\d+}")
     public User findById(@PathVariable("userId") Long userId) {
-        return restTemplate.getForObject("http://localhost:8080/api/v1/users/{id}", User.class, userId);
+        return restTemplate.getForObject("http://microservice-provider-user/api/v1/users/{id}", User.class, userId);
     }
 }

@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8090
 spring:
   application:
     name: microservice-provider-user
@@ -11,6 +11,10 @@ spring:
     admin:
       client:
         url: http://localhost:8000
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
 logging:
   level:
     root: INFO
