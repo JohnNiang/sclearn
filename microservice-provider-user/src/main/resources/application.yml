@@ -5,6 +5,10 @@ spring:
     name: microservice-provider-user
   jpa:
     show-sql: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8000
 logging:
   level:
     root: INFO
@@ -13,6 +17,10 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
 management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
   endpoint:
     health:
       show-details: always
